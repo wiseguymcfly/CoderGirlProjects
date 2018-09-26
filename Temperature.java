@@ -1,17 +1,8 @@
-import static java.lang.System.out;
-//average is sum of numbers divided by # of numbers
-
 
 public class Temperature {
-    public static void main(String[] args) {
-        //int[][] temp = {
-              //  {68, 70, 76, 70, 68, 71, 75},
-                //{76, 76, 87, 84, 82, 75, 83},
-                //{73, 72, 81, 78, 76, 73, 77},
-                //{64, 65, 69, 68, 70, 74, 72},
-        //};
-
-        int[][] temp = new int[4][7];
+    public static void main(String args[]) {
+        int temp[][] = new int[4][7];
+        // temp[2][3] = 81;
 
         temp[0][0] = 68;
         temp[1][0] = 76;
@@ -48,64 +39,118 @@ public class Temperature {
         temp[2][6] = 77;
         temp[3][6] = 72;
 
-        int[] time = new int [4];
-        time[0] = 7;
-        time[1] = 3;
-        time[2] = 7;
-        time[3] = 3;
 
-
-
-        out.println("Temperature Calculator\n");
         for (int row = 0; row < 4; row++) {
-            out.println("");
-            if (row == 0){
-                out.println("M  T  W  Th  F  S Su ");
+            if (row == 0) {
+                System.out.println("M  T  W  Th F  S  Su  ");
             }
-
             for (int column = 0; column < 7; column++) {
-                    out.print(temp[row][column] + " ");
+                System.out.print(temp[row][column] + " ");
             }
-
-            //out.println(sum/temp[row].length);
+            System.out.println("\n");
         }
 
+        //Averages
+        double allAverage = 0;
+        double monAverage = 0;
+        double tuesAverage = 0;
+        double wedAverage = 0;
+        double thursAverage = 0;
+        double friAverage = 0;
+        double satAverage = 0;
+        double sunAverage = 0;
 
-        out.println("\n");
-        //first column
-        double average = ((temp[0][0] + temp[0][1] + temp[0][2] + temp[0][3])/4);
-        out.println("Mon Average " +average+"");
-        //second column
-        average = 0;
-        average = ((temp[0][1] + temp[1][1] + temp[2][1] + temp[3][1])/4);
-        out.println("Tues Average " +average+"");
-        //third column
-        average = ((temp[0][2] + temp[1][2] + temp[2][2] + temp[3][2])/4);
-        out.println("Wed Average " +average+"");
-        //four column
-        average = ((temp[0][3] + temp[1][3] + temp[2][3] + temp[3][3])/4);
-        out.println("Thurs Average " +average+"");
-        //fifth column
-        average = ((temp[0][4] + temp[1][4] + temp[2][4] + temp[3][4])/4);
-        out.println("Fri Average " +average+"");
-        //sixth column
-        average = ((temp[0][5] + temp[1][5] + temp[2][5] + temp[3][5])/4);
-        out.println("Sat Average " +average+"");
-        //seventh column
-        average = ((temp[0][6] + temp[1][6] + temp[2][6] + temp[3][6])/4);
-        out.println("Sun Average " +average+"");
-        //
-        out.println("\n");
-        average = ((temp[0][0] + temp[0][1] + temp[0][2] + temp[0][3] + temp[0][4] + temp[0][5] + temp[0][6])/7);
-        out.println("7:00AM Average " +average+"");
-        average = ((temp[1][0] + temp[1][1] + temp[1][2] + temp[1][3] + temp[1][4] + temp[1][5] + temp[1][6])/7);
-        out.println("3:00PM Average " +average+"");
-        average = ((temp[2][0] + temp[2][1] + temp[2][2] + temp[2][3] + temp[2][4] + temp[2][5] + temp[2][6])/7);
-        out.println("7:00PM Average " +average+"");
-        average = ((temp[3][0] + temp[3][1] + temp[3][2] + temp[3][3] + temp[3][4] + temp[3][5] + temp[3][6])/7);
-        out.println("3:00AM Average " +average+"");
+        double allTotal = 0;
+        double monTotal = 0;
+        double tuesTotal = 0;
+        double wedTotal = 0;
+        double thursTotal = 0;
+        double friTotal = 0;
+        double satTotal = 0;
+        double sunTotal = 0;
 
+        double saAverage = 0;
+        double tpAverage = 0;
+        double taAverage = 0;
+        double spAverage = 0;
 
+        double saTotal = 0;
+        double tpTotal = 0;
+        double taTotal = 0;
+        double spTotal = 0;
 
+        for (int column = 0; column < 7; column++) {
+            for (int row = 0; row < 4; row++) {
+                allTotal = allTotal + temp[row][column];
+
+                if (column == 0) {
+                    monTotal = monTotal + temp[row][column];
+                }
+                if (column == 1) {
+                    tuesTotal = tuesTotal + temp[row][column];
+                }
+                if (column == 2) {
+                    wedTotal = wedTotal + temp[row][column];
+                }
+                if (column == 3) {
+                    thursTotal = thursTotal + temp[row][column];
+                }
+                if (column == 4) {
+                    friTotal = friTotal + temp[row][column];
+                }
+                if (column == 5) {
+                    satTotal = satTotal + temp[row][column];
+                }
+                if (column == 6) {
+                    sunTotal = sunTotal + temp[row][column];
+                }
+            }
+        }
+
+        for (int column = 0; column < 5; column++) {
+            for (int row = 0; row < 7; row++) {
+                if (row == 0) {
+                    saTotal = saTotal + temp[row][column];
+                }
+                if (row == 1) {
+                    tpTotal = tpTotal + temp[row][column];
+                }
+                if (row == 2) {
+                    taTotal = taTotal + temp[row][column];
+                }
+                if (row == 3) {
+                    spTotal = spTotal + temp[row][column];
+                }
+            }
+        }
+
+            monAverage = monTotal / 4;
+            tuesAverage = tuesTotal / 4;
+            wedAverage = wedTotal / 4;
+            thursAverage = thursTotal / 4;
+            friAverage = friTotal / 4;
+            satAverage = satTotal / 4;
+            sunAverage = sunTotal / 4;
+            allAverage = allTotal / 28;
+            saAverage = saTotal / 7;
+            tpAverage = tpTotal/7;
+            taAverage = taTotal/7;
+            spAverage = spTotal/7;
+
+            System.out.println("Monday Average " + monAverage + "");
+            System.out.println("Tuesday Average " + tuesAverage + "");
+            System.out.println("Wednesday Average " + wedAverage + "");
+            System.out.println("Thursday Average " + thursAverage + "");
+            System.out.println("Friday Average " + friAverage + "");
+            System.out.println("Saturday Average " + satAverage + "");
+            System.out.println("Sunday Average " + sunAverage + "");
+            System.out.println("\n");
+            System.out.println("7AM Average " + saAverage + "");
+            System.out.println("3PM Average " + tpAverage + "");
+            System.out.println("3AM Average " + taAverage + "");
+            System.out.println("7PM Average " + spAverage + "");
+            System.out.println("\n");
+            System.out.println("Total Average " + allAverage + "");
         }
     }
+
